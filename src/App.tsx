@@ -18,7 +18,8 @@ export default function App() {
 
   useEffect(() => {
     const demo = new URLSearchParams(location.search).get('demo')
-    if (demo === '1') s.setDemo({ demo: true })
+    // VITE_DEMO=1 beim Bauen schaltet den Demo-Modus fest ein (für die Vorschau)
+    if (demo === '1' || import.meta.env.VITE_DEMO === '1') s.setDemo({ demo: true })
     if (demo === '0') s.setDemo({ demo: false, demoDate: null })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

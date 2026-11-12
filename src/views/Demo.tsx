@@ -9,6 +9,7 @@ const iso = (d: Date) => new Date(d.getTime() - d.getTimezoneOffset() * 60000).t
 export function DemoPanel({ go }: { go: (v: View) => void }) {
   const s = useGame()
   const [open, setOpen] = useState(false)
+  const [sure, setSure] = useState(false)
   const n = now(s)
   const shift = (days: number) => s.setDemo({ demoDate: iso(new Date(n.getTime() + days * 864e5)) })
   if (!open) return <button className="demo-fab" onClick={() => setOpen(true)} aria-label="Demo-Werkzeug">🛠</button>
@@ -28,7 +29,7 @@ export function DemoPanel({ go }: { go: (v: View) => void }) {
         <button onClick={() => s.addBonus(0, 5)}>+5 🐚</button>
         <button onClick={() => { s.grant('schluessel'); s.grant('muschel') }}>Schlüssel + Muschel</button>
         <button onClick={() => { setOpen(false); go({ name: 'print' }) }}>Druckbogen</button>
-        <button className="danger" onClick={() => confirm('Wirklich den ganzen Spielstand löschen?') && s.reset()}>Zurücksetzen</button>
+        <button className="danger" onClick={() => (sure ? (s.reset(), setSure(false)) : setSure(true))}>{sure ? 'Wirklich löschen?' : 'Zurücksetzen'}</button>
       </div>
       <small>Ausschalten: Adresse mit ?demo=0 öffnen.</small>
     </div>
