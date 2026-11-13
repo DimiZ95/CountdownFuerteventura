@@ -53,8 +53,8 @@ export const config = {
   departure: '2026-12-09T06:00:00',
   unlockHour: 6,
   mascot: { name: 'Majo', emoji: '🐐' },
-  // Wohnort für den Wettervergleich (Koordinaten) – bitte anpassen
-  home: { name: 'Zuhause', lat: 50.11, lon: 8.68 },
+  // Wohnort für den Wettervergleich
+  home: { name: 'Ober-Ramstadt', lat: 49.83, lon: 8.75 },
   island: { name: 'Corralejo', lat: 28.73, lon: -13.87 },
   // Papas Nummer im Format 49171… (ohne +), dann geht "An Papa senden" direkt an dich
   papaWhatsApp: '',
@@ -321,10 +321,8 @@ export const rewards: Reward[] = [
   { id: 'freizeit', emoji: '☕', title: 'Zwei Stunden nur für dich – Papa hat die Jungs', price: 50, where: 'zuhause' },
   { id: 'eisrunde', emoji: '🍦', title: 'Eis-Runde für alle', price: 20, where: 'urlaub', multi: true },
   { id: 'churros', emoji: '🥨', title: 'Churros con Chocolate für alle', price: 20, where: 'urlaub', multi: true },
-  { id: 'cocktail', emoji: '🍹', title: 'Cocktail oder Mocktail am Pool', price: 30, where: 'urlaub', multi: true },
   { id: 'ausschlafen-urlaub', emoji: '😴', title: 'Ausschlafen – Papa frühstückt mit den Jungs', price: 40, where: 'urlaub', multi: true },
   { id: 'souvenir', emoji: '🛍️', title: 'Ein Souvenir deiner Wahl', price: 40, where: 'urlaub' },
-  { id: 'strandzeit', emoji: '📖', title: 'Ein Vormittag am Strand nur mit Buch – Papa hat die Jungs', price: 50, where: 'urlaub' },
   { id: 'joker', emoji: '🃏', title: 'Joker: Du bestimmst das Tagesprogramm', price: 50, where: 'urlaub' },
   { id: 'familienfoto', emoji: '📸', title: 'Familienfotos am Strand bei Sonnenuntergang', price: 50, where: 'urlaub' },
   { id: 'paella', emoji: '🥘', title: 'Paella-Abend für die ganze Familie', price: 60, where: 'urlaub' },
