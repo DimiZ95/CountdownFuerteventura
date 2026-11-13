@@ -1,7 +1,7 @@
 // ============================================================================
 //  ALLE INHALTE AN EINER STELLE
 //  Texte, Fragen, Punkte, Preise, Codes, Verstecke und Daten stehen hier.
-//  Alles mit "TODO" ist ein Platzhalter, den du noch anpassen solltest.
+//  Türchen, die Milena schon gespielt hat, und eingelöste Codes nicht mehr ändern.
 // ============================================================================
 
 export type Step =
@@ -49,14 +49,14 @@ export type Reward = {
 }
 
 export const config = {
-  family: { mama: 'Mama', papa: 'Papa', kids: 'Leano & Marlo', big: 'Leano', small: 'Marlo' },
+  family: { mama: 'Milena', papa: 'Papa', kids: 'Leano & Marlo', big: 'Leano', small: 'Marlo' },
   departure: '2026-12-09T06:00:00',
   unlockHour: 6,
   mascot: { name: 'Majo', emoji: '🐐' },
-  // TODO: Wohnort für den Wettervergleich eintragen (Koordinaten)
+  // Wohnort für den Wettervergleich (Koordinaten) – bitte anpassen
   home: { name: 'Zuhause', lat: 50.11, lon: 8.68 },
   island: { name: 'Corralejo', lat: 28.73, lon: -13.87 },
-  // TODO: Papas Nummer im Format 49171… (ohne +), dann geht "An Papa senden" direkt an dich
+  // Papas Nummer im Format 49171… (ohne +), dann geht "An Papa senden" direkt an dich
   papaWhatsApp: '',
   consolationPoints: 2,
   finaleFrom: '2026-12-08',
@@ -71,27 +71,28 @@ export const doors: Door[] = [
   {
     id: 1, date: '2026-11-14', title: 'Leinen los!', emoji: '⛵', phase: 'mailand',
     steps: [
-      { type: 'audio', title: 'Nachricht von Papa', src: 'audio/tag1-mama.m4a',
-        text: 'TODO: Deine Sprachnachricht. Bis dahin steht hier: „Guten Morgen! Ich sitze im Flieger nach Mailand – aber ab heute zählen wir gemeinsam runter. In 25 Tagen liegen wir am Strand. Jeden Tag wartet hier etwas auf dich. Los geht\'s!“' },
+      { type: 'audio', title: 'Nachricht von Papa',
+        text: 'Guten Morgen, ihr drei! Ich bin auf dem Weg nach Mailand – aber ab heute zählen wir zusammen runter. In 25 Tagen sitzen wir im Flieger nach Fuerteventura. Jeden Tag wartet hier ein Türchen auf dich, und in der Wohnung ist auch etwas versteckt. Viel Spaß – ich denk an euch!' },
       { type: 'quiz', q: 'Wie heißt die Hauptstadt von Fuerteventura?', options: ['Corralejo', 'Puerto del Rosario', 'Betancuria', 'Morro Jable'], answer: 1, points: 10,
         fact: 'Puerto del Rosario hieß früher „Puerto de Cabras“ – Ziegenhafen. Majo findet das angemessen.' },
       { type: 'choice', q: 'Erster Urlaubstag: Was machen wir zuerst?', a: '🏖️ Sofort an den Strand', b: '🍹 Erst mal ein Drink am Pool', points: 5, note: 'Notiert. So machen wir das.' },
-      { type: 'hint', title: 'Dein Starterpaket wartet', text: 'TODO Versteck: z. B. „Schau mal hinter die Kaffeemaschine.“ Auf dem Kärtchen steht ein Codewort – das gibst du auf der Startseite unter „Code einlösen“ ein.' },
+      { type: 'hint', title: 'Etwas zum Knuspern für heute Abend', text: 'Schau in deinen Kleiderschrank, hinter deine Pullover. Auf dem Zettel steht ein Codewort – das gibst du auf der Startseite unter „Code einlösen“ ein.' },
     ],
     junior: [
-      { type: 'mission', src: 'audio/tag1-leano.m4a', text: 'Papa sagt: „Leano, such mal unter deinem Kopfkissen! Da liegt was für dich. Und zeig es auch Marlo!“ (TODO Versteck)', shells: 1 },
+      { type: 'mission', text: 'Papa sagt: „Leano, schau mal in deine Gummistiefel! Da steckt was für dich. Zeig es auch Marlo!“', shells: 1 },
       { type: 'tap', q: 'Was kommt mit in den Urlaubskoffer?', shells: 1,
         options: [{ emoji: '🩳', label: 'Badehose', ok: true }, { emoji: '⛄', label: 'Schneemann' }, { emoji: '🧤', label: 'Handschuhe' }] },
     ],
   },
   {
-    id: 2, date: '2026-11-15', title: 'Sonntag auf der Insel', emoji: '🌞', phase: 'mailand', collectible: 'karte1',
+    id: 2, date: '2026-11-15', title: 'Pudding-Sonntag', emoji: '🌞', phase: 'mailand', collectible: 'karte1',
     steps: [
-      { type: 'audio', title: 'Nachricht von Papa', src: 'audio/tag2-mama.m4a', text: 'TODO: Sprachnachricht für Sonntag.' },
+      { type: 'audio', title: 'Nachricht von Papa',
+        text: 'Sonntag ohne mich – dafür mit Pudding für euch drei. Macht es euch gemütlich. Bis Dienstagabend ist es nicht mehr lang.' },
       { type: 'estimate', q: 'Wie lang ist Fuerteventura von Nord nach Süd?', answer: 100, tolerance: 15, unit: 'km', points: 10,
         fact: 'Rund 100 km – die längste der Kanareninseln.' },
       { type: 'memory', title: 'Insel-Memory', cards: ['🐐', '🌵', '🏄', '🐚', '🦎', '🌋'], points: 10 },
-      { type: 'hint', title: 'Etwas Süßes für heute Abend', text: 'TODO Versteck Tassenpudding: z. B. „Im Schrank bei den Tassen, ganz hinten.“ Codewort steht drauf.' },
+      { type: 'hint', title: 'Drei Tassen für drei Leute', text: 'Schau in den Küchenschrank, ganz hinten bei den Tassen. Eine für dich, eine für Leano, eine für Marlo. Das Codewort liegt dabei.' },
     ],
     junior: [
       { type: 'tap', q: 'Welches Tier wohnt auf Fuerteventura?', shells: 1,
@@ -105,24 +106,26 @@ export const doors: Door[] = [
       { type: 'quiz', q: 'Welcher Kontinent liegt Fuerteventura am nächsten?', options: ['Europa', 'Südamerika', 'Afrika', 'Asien'], answer: 2, points: 10,
         fact: 'Bis zur marokkanischen Küste sind es nur etwa 100 km.' },
       { type: 'open', q: 'Wer von uns verliert im Urlaub zuerst die Sonnenbrille – und warum?', points: 5, placeholder: 'Deine Prognose …' },
-      { type: 'hint', title: 'Sofa-Snack', text: 'TODO Versteck Brotchips: z. B. „Unter der Sofadecke.“ Heute Abend um TODO Uhr rufe ich an!' },
+      { type: 'hint', title: 'Halbzeit geschafft', text: 'Heute ist das Versteck für die Jungs – schau in ihre Runde. Und heute Abend rufe ich an!' },
     ],
     junior: [
+      { type: 'mission', text: 'Papa sagt: „Schaut mal in meinen Turnschuh im Flur! Da steckt eine Gute-Nacht-Geschichte. Mama liest sie euch heute Abend vor.“', shells: 1 },
       { type: 'tap', q: 'Welche Farbe hat das Meer?', shells: 1,
         options: [{ emoji: '🟦', label: 'Blau', ok: true }, { emoji: '🟪', label: 'Lila' }, { emoji: '🟫', label: 'Braun' }] },
-      { type: 'mission', text: 'Hol deine Badehose und zeig sie Mama!', shells: 1 },
     ],
   },
   {
     id: 4, date: '2026-11-17', title: 'Papa landet', emoji: '🛬', phase: 'mailand',
     steps: [
-      { type: 'audio', title: 'Nachricht von Papa', src: 'audio/tag4-mama.m4a', text: 'TODO: „Heute Abend gegen halb neun bin ich da. Stell schon mal zwei Gläser raus.“' },
+      { type: 'audio', title: 'Nachricht von Papa',
+        text: 'Heute Abend gegen halb neun bin ich wieder da. Die Jungs schlafen dann wahrscheinlich schon – du hoffentlich noch nicht.' },
       { type: 'quiz', q: 'Wie lange fliegen wir ungefähr nach Fuerteventura?', options: ['2 Stunden', '4,5 Stunden', '7 Stunden', '10 Stunden'], answer: 1, points: 10,
         fact: 'Etwa 4,5 Stunden. Genug Zeit für eine Überraschung über den Wolken …' },
       { type: 'choice', q: 'Heute Abend, wenn ich da bin:', a: '🍷 Ein Glas und erzählen', b: '🎬 Sofa und Film', points: 5, note: 'Abgemacht.' },
+      { type: 'hint', title: 'Nachtisch für alle', text: 'Schau in den Vorratsschrank, hinter die Nudeln. Reicht für euch drei. Das Codewort liegt dabei.' },
     ],
     junior: [
-      { type: 'mission', src: 'audio/tag4-leano.m4a', text: 'Papa sagt: „Wenn du morgen aufwachst, bin ich wieder da!“ Mal ein Willkommensbild und leg es vor die Tür.', shells: 2 },
+      { type: 'mission', text: 'Papa sagt: „Wenn du morgen aufwachst, bin ich wieder da!“ Mal ein Willkommensbild und leg es vor die Tür.', shells: 2 },
     ],
   },
   {
@@ -274,14 +277,15 @@ export const doors: Door[] = [
 //  Das Codewort für Umschlag 3 steht NICHT hier (siehe README, „Geheime Überraschung“).
 // ---------------------------------------------------------------------------
 export const codes: Code[] = [
-  { code: 'STARTKLAR', kind: 'text', label: 'Sa 14.11. · Starterpaket Mama', points: 15, message: 'Dein Starterpaket! Viel Spaß damit – das war erst der Anfang.' },
-  { code: 'PUDDING', kind: 'text', label: 'So 15.11. · Tassenpudding', points: 15, message: 'Tasse, heißes Wasser, Sofa. Lass es dir schmecken.' },
-  { code: 'KNUSPER', kind: 'text', label: 'Mo 16.11. · Brotchips', points: 15, message: 'Knusperzeit! Morgen Abend bin ich wieder da.' },
+  { code: 'KNUSPER', kind: 'text', label: 'Sa 14.11. · Brotchips (Kleiderschrank)', points: 15, message: 'Knusperzeit! Das war erst der Anfang.' },
+  { code: 'PUDDING', kind: 'text', label: 'So 15.11. · 3 Tassenpuddings (Küchenschrank)', points: 15, message: 'Tasse, heißes Wasser, Sofa. Lasst es euch schmecken, ihr drei.' },
+  { code: 'MILCHREIS', kind: 'text', label: 'Di 17.11. · Milchreis (Vorratsschrank)', points: 15, message: 'Guten Appetit! Heute Abend bin ich wieder da.' },
   { code: 'MILANO', kind: 'text', label: 'Mi 18.11. · Mitbringsel aus Mailand', points: 15, collectible: 'milano', message: 'Ein Stück Mailand für dich. Schön, wieder zu Hause zu sein.' },
-  { code: 'NIKOLAUS', kind: 'text', label: 'So 6.12. · Stiefel Mama (goldener Schlüssel)', points: 20, collectible: 'schluessel', message: 'Der goldene Schlüssel! Heb ihn gut auf – du brauchst ihn über den Wolken.' },
+  { code: 'NIKOLAUS', kind: 'text', label: 'So 6.12. · Stiefel Milena (goldener Schlüssel)', points: 20, collectible: 'schluessel', message: 'Der goldene Schlüssel! Heb ihn gut auf – du brauchst ihn über den Wolken.' },
   { code: 'ABENDSONNE', kind: 'text', label: 'Di 8.12. · Umschlag 1 (Sofa)', stage: 1, message: 'Etappe 1 ist offen. Das Finale beginnt!' },
   { code: 'GATE', kind: 'text', label: 'Mi 9.12. · Umschlag 2 (Flughafen)', stage: 2, message: 'Etappe 2 ist offen. Deine Bordkarte wartet.' },
-  { code: '🚗🐐☀️', kind: 'pic', label: 'Sa 14.11. · Hot-Wheels-Buch Leano', shells: 2, message: 'Super, Leano! Zwei Muscheln für dich und Marlo.' },
+  { code: '🚗🐐☀️', kind: 'pic', label: 'Sa 14.11. · Hot-Wheels-Kratzheft (Leanos Gummistiefel)', shells: 2, message: 'Super, Leano! Zwei Muscheln für dich und Marlo.' },
+  { code: '🐚🌴🍦', kind: 'pic', label: 'Mo 16.11. · Pixibuch (Papas Turnschuh)', shells: 2, message: 'Gefunden! Zwei Muscheln – und heute Abend gibt es die Geschichte.' },
   { code: '🎅🐚⭐', kind: 'pic', label: 'So 6.12. · Stiefel der Jungs', shells: 3, message: 'Der Nikolaus schickt drei Muscheln!' },
   { code: '✈️🚗🌴', kind: 'pic', label: 'Mi 9.12. · Umschlag der Jungs (Flughafen)', shells: 3, message: 'Guten Flug, ihr zwei Abenteurer!' },
 ]
@@ -303,25 +307,30 @@ export const collectibles: Record<string, { emoji: string; title: string; text: 
   schluessel: { emoji: '🗝️', title: 'Goldener Schlüssel', text: 'Für das letzte Schloss – über den Wolken.' },
 }
 export const mapPieces = ['karte1', 'karte2', 'karte3', 'karte4', 'karte5', 'karte6', 'karte7']
-// TODO: Was zeigt die fertige Schatzkarte? (Hinweis auf den Ort der Überraschung, ohne sie zu verraten)
 export const mapComplete = 'Die Karte ist komplett. Das Kreuz liegt an einem Ort, den du erst über den Wolken erfährst …'
 
 // ---------------------------------------------------------------------------
 //  SHOP – „zuhause“ ist sofort kaufbar, „urlaub“ erst im Finale (vorher Wunschliste)
 // ---------------------------------------------------------------------------
 export const rewards: Reward[] = [
-  { id: 'kochen', emoji: '👨‍🍳', title: 'Papa kocht heute Abend', price: 30, where: 'zuhause', multi: true },
-  { id: 'baden', emoji: '🛁', title: 'Eine Stunde Badewanne, Tür zu', price: 30, where: 'zuhause', multi: true },
+  { id: 'filmabend', emoji: '🎬', title: 'Filmabend – du suchst aus, ich hole die Snacks', price: 20, where: 'zuhause', multi: true },
+  { id: 'bettrunde', emoji: '🌙', title: 'Papa bringt die Jungs allein ins Bett', price: 20, where: 'zuhause', multi: true },
+  { id: 'bettfruehstueck', emoji: '🥐', title: 'Frühstück ans Bett', price: 30, where: 'zuhause' },
   { id: 'ausschlafen-daheim', emoji: '😴', title: 'Ausschlafen am Wochenende', price: 40, where: 'zuhause' },
-  { id: 'eis', emoji: '🍦', title: 'Ein Eis deiner Wahl', price: 20, where: 'urlaub', multi: true },
-  { id: 'cocktail', emoji: '🍹', title: 'Cocktail oder Mocktail', price: 30, where: 'urlaub', multi: true },
-  { id: 'fruehstueck', emoji: '🥐', title: 'Frühstück nach deinen Wünschen', price: 40, where: 'urlaub' },
+  { id: 'massage-daheim', emoji: '💆‍♀️', title: 'Massage von Papa (30 Minuten)', price: 40, where: 'zuhause' },
+  { id: 'freizeit', emoji: '☕', title: 'Zwei Stunden nur für dich – Papa hat die Jungs', price: 50, where: 'zuhause' },
+  { id: 'eisrunde', emoji: '🍦', title: 'Eis-Runde für alle', price: 20, where: 'urlaub', multi: true },
+  { id: 'churros', emoji: '🥨', title: 'Churros con Chocolate für alle', price: 20, where: 'urlaub', multi: true },
+  { id: 'cocktail', emoji: '🍹', title: 'Cocktail oder Mocktail am Pool', price: 30, where: 'urlaub', multi: true },
+  { id: 'ausschlafen-urlaub', emoji: '😴', title: 'Ausschlafen – Papa frühstückt mit den Jungs', price: 40, where: 'urlaub', multi: true },
+  { id: 'souvenir', emoji: '🛍️', title: 'Ein Souvenir deiner Wahl', price: 40, where: 'urlaub' },
+  { id: 'strandzeit', emoji: '📖', title: 'Ein Vormittag am Strand nur mit Buch – Papa hat die Jungs', price: 50, where: 'urlaub' },
   { id: 'joker', emoji: '🃏', title: 'Joker: Du bestimmst das Tagesprogramm', price: 50, where: 'urlaub' },
-  { id: 'paella', emoji: '🥘', title: 'Paella-Dinner zu zweit', price: 60, where: 'urlaub' },
-  { id: 'sunset', emoji: '🌅', title: 'Sonnenuntergangs-Date', price: 70, where: 'urlaub' },
+  { id: 'familienfoto', emoji: '📸', title: 'Familienfotos am Strand bei Sonnenuntergang', price: 50, where: 'urlaub' },
+  { id: 'paella', emoji: '🥘', title: 'Paella-Abend für die ganze Familie', price: 60, where: 'urlaub' },
   { id: 'wellness', emoji: '💆‍♀️', title: 'Massage oder Wellness-Auszeit', price: 90, where: 'urlaub' },
-  { id: 'ausflug', emoji: '🚙', title: 'Geheimer Überraschungsausflug', price: 100, where: 'urlaub' },
-  { id: 'boot', emoji: '⛵', title: 'Bootstour', price: 120, where: 'urlaub', hiddenUntil: 'muschel' },
+  { id: 'ausflug', emoji: '🦒', title: 'Familienausflug deiner Wahl (z. B. Tierpark)', price: 100, where: 'urlaub' },
+  { id: 'boot', emoji: '⛵', title: 'Bootstour zur Isla de Lobos', price: 120, where: 'urlaub', hiddenUntil: 'muschel' },
 ]
 
 // Die Jungs müssen nichts kaufen: Belohnungen schalten sich mit den Muscheln frei.
@@ -352,6 +361,6 @@ export const finale = {
     text: 'Das letzte Schloss. Du brauchst den goldenen Schlüssel und das Codewort aus Umschlag 3.',
     // Mit `npm run encrypt -- "CODEWORT" "Text"` erzeugen und hier einfügen.
     // Platzhalter-Codewort für den Prototyp: LEUCHTTURM
-    secret: { s: 'bhWj2hFoUOWKQv5epNntMA==', i: 'qNuBijqHL9mwXm3/', c: 'GqO/Xz6g7sCOawpS4ZOMrk4waQBR2HLmj3KznHuP1h/LAC1bY0VDaOt6JWeFv99tF+RW7mIfW0qzXUcLLhYM8AseSfPAENeXMkCDK/uIkbE4SRqc/K8QWaUBl8Rn4zegxexf3C67lMamWTnvqOgj7Sr8sR6JAZfd/xADhE7Rkr2gGyly1QkVF/SfIRhBQEM9PQK8qGipRGu0IyuDrw44hdX3qWUfq7cQZmayT31vHZ7Mr8AeQD5R1Yo3NVB9RvLxv75zXDd/LXU6/cTHB0lg23h4aiU/fedgr5bcWoGllg4=' },
+    secret: { s: 'tY09X6EeHommPSWu9Mn44A==', i: 'hQNlJw/y6gzjevw5', c: 'f/RSEG4eTzIbw3renkEyMh5OYzIIiF9GQv3utwvu37MYTJkq/tzO/Vz/Y7thpEAlYiocaHL+nKi27WjzmvsfMqm6xu1QQSpFO0Njdpe5M6GE7UXhdzUIXAi8QqisWhJZzrdlqwqjSXVVs7TtoEpT+Ne+XTllw6WGKa/1k705L0FUMoSdBGGmFUDH5BJFBqQLqkpMQe/IwuQqSo3BRSP02PDK+kFqeX36b/GftrN3j6Z49pukH+BYOpGlfvRGjOrHRZn168Jak2G8ZzwH1Gw1ynMyW2HRtrQEyvaIwGBRPZqv6lta+mJJKw==' },
   },
 }

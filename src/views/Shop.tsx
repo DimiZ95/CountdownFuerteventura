@@ -90,7 +90,7 @@ export function Vouchers({ go }: { go: (v: View) => void }) {
         </div>
       )}
       {s.vouchers.map((v) => {
-        const r = rewards.find((x) => x.id === v.rewardId)!
+        const r = rewards.find((x) => x.id === v.rewardId) ?? { emoji: '🎟️', title: 'Gutschein', where: 'urlaub' as const }
         return (
           <div key={v.id} className={`voucher ${v.redeemedAt ? 'used' : ''}`}>
             <span className="item-emoji">{r.emoji}</span>

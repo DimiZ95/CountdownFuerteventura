@@ -3,7 +3,8 @@ import { persist } from 'zustand/middleware'
 import { codes, config, doors, rewards, type Code } from './config'
 
 export type Result = { points: number; shells: number; data?: string }
-export type Voucher = { id: string; rewardId: string; boughtAt: string; redeemedAt?: string }
+// Der Preis wird beim Kauf gespeichert, damit spätere Preisänderungen das Guthaben nicht verschieben
+export type Voucher = { id: string; rewardId: string; price?: number; boughtAt: string; redeemedAt?: string }
 
 type State = {
   results: Record<string, Result> // Schlüssel: "<bereich>:<schritt>", z. B. "d3:1" oder "d3j:0"
@@ -62,7 +63,7 @@ export const useGame = create<State & Actions>()(
         const r = rewards.find((x) => x.id === id)
         if (!r || balance(get()) < r.price) return false
         set((s) => ({
-          vouchers: [...s.vouchers, { id: `${id}-${Date.now()}`, rewardId: id, boughtAt: new Date().toISOString() }],
+          vouchers: [...s.vouchers, { id: `${id}-${Date.now()}`, rewardId: id, price: r.price, boughtAt: new Date().toISOString() }],
           wishlist: s.wishlist.filter((w) => w !== id),
         }))
         return true
@@ -84,7 +85,7 @@ export const useGame = create<State & Actions>()(
 const sum = (s: State, f: 'points' | 'shells') => Object.values(s.results).reduce((a, r) => a + r[f], 0) + s.bonus[f]
 export const earned = (s: State) => sum(s, 'points')
 export const shells = (s: State) => sum(s, 'shells')
-export const spent = (s: State) => s.vouchers.reduce((a, v) => a + (rewards.find((r) => r.id === v.rewardId)?.price ?? 0), 0)
+export const spent = (s: State) => s.vouchers.reduce((a, v) => a + (v.price ?? rewards.find((r) => r.id === v.rewardId)?.price ?? 0), 0)
 export const balance = (s: State) => earned(s) - spent(s)
 
 export const now = (s: Pick<State, 'demoDate'>) => (s.demoDate ? new Date(s.demoDate) : new Date())

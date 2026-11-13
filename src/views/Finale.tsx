@@ -55,7 +55,7 @@ export default function Finale({ go }: { go: (v: View) => void }) {
             <p>{finale.stage2.text}</p>
             <ul>
               {open.length === 0 && <li>Noch keine Gutscheine – schnell in den Shop!</li>}
-              {open.map((v) => { const r = rewards.find((x) => x.id === v.rewardId)!; return <li key={v.id}>{r.emoji} {r.title}</li> })}
+              {open.map((v) => { const r = rewards.find((x) => x.id === v.rewardId); return <li key={v.id}>{r?.emoji ?? '🎟️'} {r?.title ?? 'Gutschein'}</li> })}
               {kidsRewards.filter((k) => shells(s) >= k.at).map((k) => <li key={k.at}>{k.emoji} {config.family.kids}: {k.title}</li>)}
             </ul>
             <footer>Passagiere: 4 · Sitzplatz: Sonnenseite</footer>
