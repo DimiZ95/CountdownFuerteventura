@@ -76,10 +76,10 @@ export const doors: Door[] = [
       { type: 'quiz', q: 'Wie heißt die Hauptstadt von Fuerteventura?', options: ['Corralejo', 'Puerto del Rosario', 'Betancuria', 'Morro Jable'], answer: 1, points: 10,
         fact: 'Puerto del Rosario hieß früher „Puerto de Cabras“ – Ziegenhafen. Majo findet das angemessen.' },
       { type: 'choice', q: 'Erster Urlaubstag: Was machen wir zuerst?', a: '🏖️ Sofort an den Strand', b: '🍹 Erst mal ein Drink am Pool', points: 5, note: 'Notiert. So machen wir das.' },
-      { type: 'hint', title: 'Etwas zum Knuspern für heute Abend', text: 'Schau in deinen Kleiderschrank, hinter deine Pullover. Auf dem Zettel steht ein Codewort – das gibst du auf der Startseite unter „Code einlösen“ ein.' },
+      { type: 'hint', title: 'Etwas zum Knuspern für heute Abend', text: 'Schau in den Teeschrank. Auf dem Zettel steht ein Codewort – das gibst du auf der Startseite unter „Code einlösen“ ein.' },
     ],
     junior: [
-      { type: 'mission', text: 'Papa sagt: „Leano, schau mal in deine Gummistiefel! Da steckt was für dich. Zeig es auch Marlo!“', shells: 1 },
+      { type: 'mission', text: 'Papa sagt: „Leano, im Teeschrank liegt was für dich! Mama hilft dir beim Suchen. Zeig es auch Marlo!“', shells: 1 },
       { type: 'tap', q: 'Was kommt mit in den Urlaubskoffer?', shells: 1,
         options: [{ emoji: '🩳', label: 'Badehose', ok: true }, { emoji: '⛄', label: 'Schneemann' }, { emoji: '🧤', label: 'Handschuhe' }] },
     ],
@@ -109,7 +109,7 @@ export const doors: Door[] = [
       { type: 'hint', title: 'Halbzeit geschafft', text: 'Heute ist das Versteck für die Jungs – schau in ihre Runde. Und heute Abend rufe ich an!' },
     ],
     junior: [
-      { type: 'mission', text: 'Papa sagt: „Schaut mal in meinen Turnschuh im Flur! Da steckt eine Gute-Nacht-Geschichte. Mama liest sie euch heute Abend vor.“', shells: 1 },
+      { type: 'mission', text: 'Papa sagt: „Schaut mal unter Marlos Lätzchen! Da liegt eine Gute-Nacht-Geschichte. Mama liest sie euch heute Abend vor.“', shells: 1 },
       { type: 'tap', q: 'Welche Farbe hat das Meer?', shells: 1,
         options: [{ emoji: '🟦', label: 'Blau', ok: true }, { emoji: '🟪', label: 'Lila' }, { emoji: '🟫', label: 'Braun' }] },
     ],
@@ -122,7 +122,7 @@ export const doors: Door[] = [
       { type: 'quiz', q: 'Wie lange fliegen wir ungefähr nach Fuerteventura?', options: ['2 Stunden', '4,5 Stunden', '7 Stunden', '10 Stunden'], answer: 1, points: 10,
         fact: 'Etwa 4,5 Stunden. Genug Zeit für eine Überraschung über den Wolken …' },
       { type: 'choice', q: 'Heute Abend, wenn ich da bin:', a: '🍷 Ein Glas und erzählen', b: '🎬 Sofa und Film', points: 5, note: 'Abgemacht.' },
-      { type: 'hint', title: 'Nachtisch für alle', text: 'Schau in den Vorratsschrank, hinter die Nudeln. Reicht für euch drei. Das Codewort liegt dabei.' },
+      { type: 'hint', title: 'Nachtisch für alle', text: 'Schau zu den Nudeln – er liegt auf den Gnocchi. Reicht für euch drei. Das Codewort liegt dabei.' },
     ],
     junior: [
       { type: 'mission', text: 'Papa sagt: „Wenn du morgen aufwachst, bin ich wieder da!“ Mal ein Willkommensbild und leg es vor die Tür.', shells: 2 },
@@ -277,15 +277,15 @@ export const doors: Door[] = [
 //  Das Codewort für Umschlag 3 steht NICHT hier (siehe README, „Geheime Überraschung“).
 // ---------------------------------------------------------------------------
 export const codes: Code[] = [
-  { code: 'KNUSPER', kind: 'text', label: 'Sa 14.11. · Brotchips (Kleiderschrank)', points: 15, message: 'Knusperzeit! Das war erst der Anfang.' },
+  { code: 'KNUSPER', kind: 'text', label: 'Sa 14.11. · Brotchips (Teeschrank)', points: 15, message: 'Knusperzeit! Das war erst der Anfang.' },
   { code: 'PUDDING', kind: 'text', label: 'So 15.11. · 3 Tassenpuddings (Küchenschrank)', points: 15, message: 'Tasse, heißes Wasser, Sofa. Lasst es euch schmecken, ihr drei.' },
-  { code: 'MILCHREIS', kind: 'text', label: 'Di 17.11. · Milchreis (Vorratsschrank)', points: 15, message: 'Guten Appetit! Heute Abend bin ich wieder da.' },
+  { code: 'MILCHREIS', kind: 'text', label: 'Di 17.11. · Milchreis (auf den Gnocchi)', points: 15, message: 'Guten Appetit! Heute Abend bin ich wieder da.' },
   { code: 'MILANO', kind: 'text', label: 'Mi 18.11. · Mitbringsel aus Mailand', points: 15, collectible: 'milano', message: 'Ein Stück Mailand für dich. Schön, wieder zu Hause zu sein.' },
   { code: 'NIKOLAUS', kind: 'text', label: 'So 6.12. · Stiefel Milena (goldener Schlüssel)', points: 20, collectible: 'schluessel', message: 'Der goldene Schlüssel! Heb ihn gut auf – du brauchst ihn über den Wolken.' },
   { code: 'ABENDSONNE', kind: 'text', label: 'Di 8.12. · Umschlag 1 (Sofa)', stage: 1, message: 'Etappe 1 ist offen. Das Finale beginnt!' },
   { code: 'GATE', kind: 'text', label: 'Mi 9.12. · Umschlag 2 (Flughafen)', stage: 2, message: 'Etappe 2 ist offen. Deine Bordkarte wartet.' },
-  { code: '🚗🐐☀️', kind: 'pic', label: 'Sa 14.11. · Hot-Wheels-Kratzheft (Leanos Gummistiefel)', shells: 2, message: 'Super, Leano! Zwei Muscheln für dich und Marlo.' },
-  { code: '🐚🌴🍦', kind: 'pic', label: 'Mo 16.11. · Pixibuch (Papas Turnschuh)', shells: 2, message: 'Gefunden! Zwei Muscheln – und heute Abend gibt es die Geschichte.' },
+  { code: '🚗🐐☀️', kind: 'pic', label: 'Sa 14.11. · Hot-Wheels-Kratzheft (Teeschrank)', shells: 2, message: 'Super, Leano! Zwei Muscheln für dich und Marlo.' },
+  { code: '🐚🌴🍦', kind: 'pic', label: 'Mo 16.11. · Pixibuch (unter Marlos Lätzchen)', shells: 2, message: 'Gefunden! Zwei Muscheln – und heute Abend gibt es die Geschichte.' },
   { code: '🎅🐚⭐', kind: 'pic', label: 'So 6.12. · Stiefel der Jungs', shells: 3, message: 'Der Nikolaus schickt drei Muscheln!' },
   { code: '✈️🚗🌴', kind: 'pic', label: 'Mi 9.12. · Umschlag der Jungs (Flughafen)', shells: 3, message: 'Guten Flug, ihr zwei Abenteurer!' },
 ]
