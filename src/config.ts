@@ -85,14 +85,14 @@ export const doors: Door[] = [
     ],
   },
   {
-    id: 2, date: '2026-11-15', title: 'Pudding-Sonntag', emoji: '🌞', phase: 'mailand', collectible: 'karte1',
+    id: 2, date: '2026-11-15', title: 'Sonntag auf der Insel', emoji: '🌞', phase: 'mailand', collectible: 'karte1',
     steps: [
       { type: 'audio', title: 'Nachricht von Papa',
-        text: 'Sonntag ohne mich – dafür mit Pudding für euch drei. Macht es euch gemütlich. Bis Dienstagabend ist es nicht mehr lang.' },
+        text: 'Sonntag ohne mich – aber nicht ohne Überraschung. Macht es euch gemütlich, ihr drei. Bis Dienstagabend ist es nicht mehr lang.' },
       { type: 'estimate', q: 'Wie lang ist Fuerteventura von Nord nach Süd?', answer: 100, tolerance: 15, unit: 'km', points: 10,
         fact: 'Rund 100 km – die längste der Kanareninseln.' },
       { type: 'memory', title: 'Insel-Memory', cards: ['🐐', '🌵', '🏄', '🐚', '🦎', '🌋'], points: 10 },
-      { type: 'hint', title: 'Drei Tassen für drei Leute', text: 'Schau in den Küchenschrank, ganz hinten bei den Tassen. Eine für dich, eine für Leano, eine für Marlo. Das Codewort liegt dabei.' },
+      { type: 'hint', title: 'Etwas Süßes für euch drei', text: 'Schau in den Küchenschrank, ganz hinten bei den Tassen. Eine für dich, eine für Leano, eine für Marlo. Das Codewort liegt dabei.' },
     ],
     junior: [
       { type: 'tap', q: 'Welches Tier wohnt auf Fuerteventura?', shells: 1,
