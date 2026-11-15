@@ -181,6 +181,7 @@ export default function Home({ go }: { go: (v: View) => void }) {
       </header>
 
       <Weather />
+      <a className="btn ghost" href={config.webcam.url} target="_blank" rel="noreferrer">📹 {config.webcam.label}</a>
 
       <section className="stats">
         <button className="stat" onClick={() => go({ name: 'shop' })}>
