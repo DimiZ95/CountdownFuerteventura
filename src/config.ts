@@ -56,6 +56,8 @@ export const config = {
   // Wohnort für den Wettervergleich
   home: { name: 'Ober-Ramstadt', lat: 49.83, lon: 8.75 },
   island: { name: 'Corralejo', lat: 28.73, lon: -13.87 },
+  // Live-Bild von unserem Strand – öffnet sich in einem neuen Tab
+  webcam: { label: 'Live-Blick auf unseren Strand in El Cotillo', url: 'https://www.fuerteventuraplayas.com/de/webcams/el-cotillo-la-concha/' },
   // Papas Nummer im Format 49171… (ohne +), dann geht "An Papa senden" direkt an dich
   papaWhatsApp: '',
   consolationPoints: 2,
