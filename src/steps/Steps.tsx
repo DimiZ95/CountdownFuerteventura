@@ -176,11 +176,67 @@ function Hint({ step, done }: { step: Extract<Step, { type: 'hint' }>; done: Don
   return (
     <>
       <div className="hint">
-        <span>🎁</span>
+        <span>{step.link ? '🌴' : '🎁'}</span>
         <h3>{step.title}</h3>
         <p>{step.text}</p>
+        {step.link && <a className="btn ghost" href={step.link.url} target="_blank" rel="noreferrer">{step.link.label}</a>}
       </div>
       <button className="btn" onClick={() => done({ points: 0, shells: 0 })}>Alles klar</button>
+    </>
+  )
+}
+
+function Scramble({ step, done }: { step: Extract<Step, { type: 'scramble' }>; done: Done }) {
+  const letters = useMemo(() => {
+    const l = step.word.split('')
+    for (let n = 0; n < 20; n++) {
+      const m = [...l].sort(() => Math.random() - 0.5)
+      if (m.join('') !== step.word) return m
+    }
+    return [...l].reverse()
+  }, [step.word])
+  const [picked, setPicked] = useState<number[]>([])
+  const [tries, setTries] = useState(0)
+  const [won, setWon] = useState<number | null>(null)
+  const guess = picked.map((i) => letters[i]).join('')
+
+  useEffect(() => {
+    if (picked.length !== letters.length || won !== null) return
+    if (guess === step.word) {
+      setWon(tries === 0 ? step.points : Math.ceil(step.points / 2))
+      sparkle()
+      return
+    }
+    const t = setTimeout(() => { setPicked([]); setTries((x) => x + 1) }, 700)
+    return () => clearTimeout(t)
+  }, [picked, letters.length, guess, step.word, step.points, tries, won])
+
+  return (
+    <>
+      <h3>{step.q}</h3>
+      <div className="slots">
+        {letters.map((_, i) => <span key={i} className={won !== null ? 'right' : ''}>{guess[i] ?? ''}</span>)}
+      </div>
+      {won === null && (
+        <>
+          <div className="letters">
+            {letters.map((l, i) => (
+              <button key={i} disabled={picked.includes(i)} onClick={() => setPicked([...picked, i])}>{l}</button>
+            ))}
+          </div>
+          <div className="row">
+            <button className="link" onClick={() => setPicked(picked.slice(0, -1))} disabled={!picked.length}>⌫ Zurück</button>
+            {tries >= 2 && <button className="link" onClick={() => setWon(config.consolationPoints)}>Auflösen</button>}
+          </div>
+          {tries > 0 && <Majo>{tries === 1 ? 'Fast! Probier es noch mal.' : 'Kleiner Tipp: Es ist süß und wird in Schokolade getunkt.'}</Majo>}
+        </>
+      )}
+      {won !== null && (
+        <>
+          <Majo>{won === config.consolationPoints ? `Das Wort war ${step.word}. ` : 'Richtig! '}{step.fact}</Majo>
+          <button className="btn" onClick={() => done({ points: won, shells: 0 })}>+{won} ☀️ einsammeln</button>
+        </>
+      )}
     </>
   )
 }
@@ -234,6 +290,7 @@ function StepView({ step, done }: { step: Step; done: Done }) {
     case 'open': return <Open step={step} done={done} />
     case 'memory': return <Memory step={step} done={done} />
     case 'hint': return <Hint step={step} done={done} />
+    case 'scramble': return <Scramble step={step} done={done} />
     case 'tap': return <Tap step={step} done={done} />
     case 'mission': return <Mission step={step} done={done} />
   }

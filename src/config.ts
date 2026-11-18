@@ -11,7 +11,8 @@ export type Step =
   | { type: 'choice'; q: string; a: string; b: string; points: number; note?: string }
   | { type: 'open'; q: string; points: number; placeholder?: string }
   | { type: 'memory'; title: string; cards: string[]; points: number }
-  | { type: 'hint'; title: string; text: string }
+  | { type: 'hint'; title: string; text: string; link?: { label: string; url: string } }
+  | { type: 'scramble'; q: string; word: string; points: number; fact?: string }
   // Junior-Runde (Leano & Marlo): keine falschen Antworten, nur Muscheln
   | { type: 'tap'; q: string; options: { emoji: string; label: string; ok?: boolean }[]; shells: number; src?: string }
   | { type: 'mission'; text: string; shells: number; src?: string }
@@ -131,12 +132,19 @@ export const doors: Door[] = [
   {
     id: 5, date: '2026-11-18', title: 'Wieder komplett', emoji: '👨‍👩‍👦‍👦', phase: 'inselpost', collectible: 'karte2',
     steps: [
-      { type: 'hint', title: 'Post aus Mailand', text: 'Am Frühstückstisch liegt etwas aus Mailand. Das Codewort steht dabei.' },
+      { type: 'scramble', q: 'Buchstabensalat: Was essen wir im Urlaub ganz bestimmt?', word: 'CHURROS', points: 10,
+        fact: 'Churros con Chocolate – frittiertes Spritzgebäck zum Eintunken. Gehört zu jedem Kanaren-Urlaub.' },
       { type: 'quiz', q: 'Fuerteventura ist die … Insel der Kanaren.', options: ['größte', 'zweitgrößte', 'kleinste', 'jüngste'], answer: 1, points: 10,
         fact: 'Zweitgrößte nach Teneriffa – und die älteste: rund 20 Millionen Jahre.' },
+      { type: 'hint', title: 'Ein Blick auf die Insel', text: 'Wenn du magst: Hier siehst du live, wie es gerade am Strand aussieht. In drei Wochen stehen wir selbst dort.',
+        link: { label: '📹 Zur Webcam', url: 'https://www.fuerteventuraplayas.com/de/webcams/el-cotillo-la-concha/' } },
     ],
     junior: [
-      { type: 'mission', text: 'Zeig Papa dein Willkommensbild und erzähl ihm, was du mit Mama gemacht hast.', shells: 1 },
+      { type: 'tap', q: 'Was nimmt man mit an den Strand?', shells: 1,
+        options: [{ emoji: '🛷', label: 'Schlitten' }, { emoji: '⛱️', label: 'Sonnenschirm', ok: true }, { emoji: '🧥', label: 'Wintermantel' }] },
+      { type: 'tap', q: 'Wer wohnt im Meer?', shells: 1,
+        options: [{ emoji: '🐓', label: 'Huhn' }, { emoji: '🐈', label: 'Katze' }, { emoji: '🐬', label: 'Delfin', ok: true }] },
+      { type: 'mission', text: 'Papa ist wieder da! Lauf zu ihm und frag ihn: „Was hast du mir aus Mailand mitgebracht?“', shells: 2 },
     ],
   },
   {
