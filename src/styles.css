@@ -123,6 +123,13 @@ input:focus, textarea:focus { border-color: var(--sea); }
 .option.wrong { background: #ffe6df; border-color: var(--coral); opacity: 0.7; animation: shake 0.4s; }
 @keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
 .shake { animation: shake 0.4s; }
+.slots { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.slots span { width: 38px; height: 46px; border-radius: 10px; border: 2px dashed var(--sand-2); background: #fffdf7; display: grid; place-items: center; font-weight: 800; font-size: 1.3rem; }
+.slots span.right { border: 2px solid #2fb872; background: #d9f7e6; }
+.letters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.letters button { width: 44px; height: 48px; border-radius: 12px; background: linear-gradient(160deg, #ffe08a, var(--sun)); font-weight: 800; font-size: 1.3rem; box-shadow: 0 3px 0 #d99a1a; }
+.letters button:disabled { opacity: 0.25; box-shadow: none; }
+.row { display: flex; justify-content: space-between; }
 .estimate { display: flex; gap: 10px; align-items: center; font-weight: 700; }
 .letter { background: #fffdf7; border-left: 4px solid var(--sun); padding: 12px 14px; border-radius: 0 14px 14px 0; font-style: italic; }
 .voice { width: 100%; }
